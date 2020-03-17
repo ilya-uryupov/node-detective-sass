@@ -39,6 +39,11 @@ describe('detective-sass', function() {
     assert.ok(detective.ast);
   });
 
+  it('dangles the parsed AST with @use', function() {
+    detective('@use "_foo.sass";');
+    assert.ok(detective.ast);
+  });
+
   describe('when there is a parse error', function() {
     it('supplies an empty object as the "parsed" ast', function() {
       detective('|');
@@ -51,6 +56,12 @@ describe('detective-sass', function() {
       test('@import _foo', ['_foo']);
       test('@import        _foo', ['_foo']);
       test('@import reset', ['reset']);
+    });
+
+    it('returns the dependencies of the given .sass file content with @use', function() {
+      test('@use _foo', ['_foo']);
+      test('@use        _foo', ['_foo']);
+      test('@use reset', ['reset']);
     });
   });
 });

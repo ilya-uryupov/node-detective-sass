@@ -48,9 +48,11 @@ function isImportStatement(node) {
 
   var importKeyword = atKeyword.content[0];
 
-  if (importKeyword.type !== 'ident' || importKeyword.content !== 'import') { return false; }
+  if (importKeyword.type !== 'ident') {
+    return false;
+  }
 
-  return true;
+  return importKeyword.content === 'import' || importKeyword.content === 'use';
 }
 
 function extractDependencies(importStatementNode) {
