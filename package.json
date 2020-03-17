@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "gonzales-pe": "^4.2.3",
+    "gonzales-pe": "git+https://github.com/ilya-uryupov/gonzales-pe.git#hs/v4.2.4",
     "node-source-walk": "^4.0.0"
   }
 }
